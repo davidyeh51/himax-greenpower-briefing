@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>綠電資產平台｜奇景董總簡報（討論稿）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#051C2C; --blue:#2251FF; --cyan:#00A9F4; --teal:#14868C;
+  --ink:#1A1A1A; --gray:#5F6B7A; --mid:#A2AAB4; --line:#D5DAE1; --light:#F3F5F8;
+  --red:#C8102E; --amber:#D98E04; --green:#0A7B55;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#20252B;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center}
+.slide{position:absolute;inset:0;background:#fff;padding:30px 56px 0 56px;display:none;overflow:hidden}
+.slide.active{display:block}
+/* tracker */
+.tracker{display:flex;gap:18px;font-size:11px;letter-spacing:.08em;color:var(--mid);height:18px;align-items:center}
+.tracker span.on{color:var(--navy);font-weight:700;border-bottom:2px solid var(--blue);padding-bottom:1px}
+.title{font-family:"Noto Serif TC",serif;font-weight:700;color:var(--navy);font-size:27px;line-height:1.38;margin-top:10px;min-height:76px;padding-bottom:10px;border-bottom:1px solid var(--navy)}
+.body{position:absolute;left:56px;right:56px;top:142px;bottom:58px}
+footer{position:absolute;left:56px;right:56px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end;font-size:10.5px;color:var(--gray);border-top:1px solid var(--line);padding-top:6px;gap:24px}
+footer .src{flex:1;line-height:1.45}
+footer .pg{white-space:nowrap}
+.notes{display:none}
+/* typography helpers */
+.kicker{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.06em;margin-bottom:6px}
+h3{font-size:16px;color:var(--navy);margin-bottom:8px}
+p,li{font-size:14.5px;line-height:1.6}
+ul.b{list-style:none}
+ul.b li{position:relative;padding-left:16px;margin-bottom:6px}
+ul.b li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--blue)}
+.tag{display:inline-block;font-size:10px;padding:0 5px;border-radius:2px;margin-left:4px;vertical-align:2px;font-weight:500}
+.t-v{background:#E3F4EC;color:var(--green)}
+.t-i{background:#E8EEFF;color:var(--blue)}
+.t-u{background:#FFF1D6;color:#8A5A00}
+.muted{color:var(--gray)}
+.num{font-weight:700;color:var(--navy)}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{border-top:3px solid var(--navy);background:var(--light);padding:14px 16px}
+.card.blue{border-top-color:var(--blue)}.card.cyan{border-top-color:var(--cyan)}.card.red{border-top-color:var(--red)}
+.kpi .v{font-size:34px;font-weight:700;color:var(--navy);line-height:1.1}
+.kpi .v small{font-size:15px;font-weight:500}
+.kpi .l{font-size:13px;color:var(--gray);margin-top:6px;line-height:1.45}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--navy);color:#fff;font-weight:500;text-align:left;padding:7px 9px}
+td{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+tr.hl td{background:#EAF0FF}
+.so{position:absolute;left:0;right:0;bottom:0;background:var(--navy);color:#fff;padding:10px 16px;font-size:14.5px;line-height:1.5}
+.so b{color:#7FD3FF}
+/* cover */
+.cover{background:var(--navy);color:#fff;padding:0}
+.cover .inner{position:absolute;left:80px;top:150px;right:80px}
+.cover .eyebrow{font-size:14px;letter-spacing:.16em;color:#7FD3FF}
+.cover h1{font-family:"Noto Serif TC",serif;font-size:44px;line-height:1.35;margin:18px 0 22px}
+.cover .sub{font-size:19px;color:#C9D3DD;line-height:1.6}
+.cover .meta{position:absolute;left:80px;bottom:60px;font-size:13px;color:#9FB0C0;line-height:1.8}
+.cover .bar{position:absolute;left:80px;top:120px;width:80px;height:4px;background:var(--cyan)}
+/* exec summary */
+.scr{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--line)}
+.scr>div{padding:11px 4px;border-bottom:1px solid var(--line)}
+.scr .h{font-weight:700;color:var(--blue);font-size:14px}
+/* diagram */
+.dg{position:relative;width:1168px;height:470px}
+.box{position:absolute;border:1.5px solid var(--navy);background:#fff;padding:8px 12px;font-size:12.5px;line-height:1.45}
+.box b{display:block;font-size:15px;color:var(--navy);margin-bottom:2px}
+.box.fill{background:var(--navy);color:#fff}.box.fill b{color:#fff}
+.box.blue{border-color:var(--blue);background:#EEF2FF}
+.box.buyer{border-color:var(--teal);background:#EAF6F6}
+.dg svg{position:absolute;inset:0;pointer-events:none}
+.lbl{position:absolute;font-size:11px;color:var(--gray);background:#fff;padding:0 4px}
+/* options matrix */
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--navy);vertical-align:-2px}
+.d4{background:var(--navy)}.d2{background:linear-gradient(90deg,var(--navy) 50%,#fff 50%)}.d0{background:#fff}
+.d3{background:conic-gradient(var(--navy) 0 75%,#fff 75% 100%)}.d1{background:conic-gradient(var(--navy) 0 25%,#fff 25% 100%)}
+.rec{color:var(--blue);font-weight:700}
+/* gates */
+.gate{position:relative;background:var(--light);padding:14px 16px;border-left:4px solid var(--blue)}
+.gate .mw{font-size:30px;font-weight:700;color:var(--navy)}
+/* progress */
+#hud{position:fixed;bottom:10px;right:14px;color:#9AA4AF;font-size:12px;font-family:Consolas,monospace;z-index:20;user-select:none}
+#hud button{background:#2E353D;color:#D6DDE4;border:0;padding:4px 9px;margin-left:4px;cursor:pointer;border-radius:3px;font-size:12px}
+#notesPanel{position:fixed;left:0;right:0;bottom:0;max-height:34vh;overflow:auto;background:#111821;color:#E6EBF0;padding:14px 22px 40px;font-size:15px;line-height:1.7;display:none;z-index:15;border-top:3px solid var(--blue)}
+#notesPanel .t{color:#7FD3FF;font-size:12px;margin-bottom:6px}
+#timer{color:#7FD3FF}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--cyan);z-index:20;transition:width .2s}
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{overflow:visible;background:#fff}
+  #stage{position:static;transform:none!important;width:1280px;height:auto}
+  .slide{display:block!important;position:relative;width:1280px;height:720px;page-break-after:always}
+  #hud,#notesPanel,#progress{display:none!important}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="stage">
+
+<!-- 1 COVER -->
+<section class="slide cover" data-sec="" data-min="0.5">
+  <div class="bar"></div>
+  <div class="inner">
+    <div class="eyebrow">董總簡報｜討論稿</div>
+    <h1>以 5% 股權帶動百綠成為綠電平台：<br>負債留在表外，價值放在百綠</h1>
+    <div class="sub">奇景 × 國泰電業 × 百綠 × 進能服　綠電資產平台商業模式</div>
+  </div>
+  <div class="meta">報告 20 分鐘｜答詢 10 分鐘<br>2026 年 10 月<br>標示規則：<span class="tag t-v">查證</span> 有公開來源　<span class="tag t-i">推論</span> 依查證數據計算／判斷　<span class="tag t-u">未查證</span> 定稿前須確認</div>
+  <aside class="notes">（30 秒）董總好，今天用 20 分鐘說明綠電資產平台的商業模式，再留 10 分鐘答詢。先講結論：架構可行，但要調整成「國泰持有資產、百綠做輕資產的開發與售電」。這樣才能同時守住表外，並讓奇景的價值落在百綠。</aside>
+</section>
+
+<!-- 2 EXEC SUMMARY -->
+<section class="slide" data-sec="摘要" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">架構可行，但要調整：國泰持有資產、百綠只做「開發＋代理售電」，規模分三個閘門推進</h1>
+  <div class="body">
+    <div class="scr">
+      <div class="h">情境</div><div><p>綠電「需求熱、供給冷」：2025 年全國綠電交易 58 億度；台積電 2030 年台灣廠區仍缺約 80 億度<span class="tag t-v">查證</span>。售電平台（天能綠電）營收年增六成以上，EPC 端（進能服）同期衰退五成。</p></div>
+      <div class="h">問題</div><div><p>原案讓百綠同時擔任<b>開發者、固定價全量包銷買方、SPV 管理者</b>，再全數轉供台積電，會同時產生三個問題：① IFRS 10／16 可能讓負債回到奇景報表；② 台積電單一買家把價差壓薄；③ 6→100 MW 的供給缺口補不起來<span class="tag t-i">推論</span>。</p></div>
+      <div class="h">建議</div><div>
+        <ul class="b">
+          <li><b>主導權：</b>國泰電業 95%／奇景 5%；售電、融資、預算等攸關決策留在 SPV 董事會</li>
+          <li><b>百綠角色：</b>開發（收開發費）＋代理售電（收服務費或部分價差），不做固定價全量包銷</li>
+          <li><b>買方：</b>台積電錨定 50–60%＋半導體生態系 30–40%＋同業互售約 10%</li>
+          <li><b>規模：</b>30／60／100 MW 三個閘門，每個閘門都設退出點</li>
+        </ul></div>
+      <div class="h">請董總決定</div><div><p>同意上述方向，並授權 <b>90 天前置驗證</b>：百綠持股確認、簽證會計師初步意見、國泰非正式初談。</p></div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：旺得富引述天能綠電；CSRone 引述 TCAN；科技新報；nStock；本團隊分析</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）這頁是全場的答案。情境：綠電是需求熱、供給冷，售電端在成長，工程端在萎縮。問題：原案把三個角色疊在百綠身上，會計、買方、規模三個風險會同時出現。建議有四點：國泰持有資產、百綠做輕資產、買方分散、規模分閘門。今天最後要請董總做的決定，是授權 90 天的前置驗證，還不是投資決定。</aside>
+</section>
+
+<!-- 3 MARKET -->
+<section class="slide" data-sec="市場機會" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">市場「需求熱、供給冷」：價值正從工程端移往售電端，這是切入的時間窗口</h1>
+  <div class="body">
+    <div class="grid" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+      <div class="card kpi"><div class="v">58<small> 億度</small></div><div class="l">2025 年全國綠電交易量；業者預估未來五年年複合成長 47.7%<span class="tag t-v">查證</span></div></div>
+      <div class="card kpi"><div class="v">~80<small> 億度</small></div><div class="l">台積電 2030 年台灣廠區要達 RE60，仍缺的綠電量（TCAN 推估）<span class="tag t-v">查證</span></div></div>
+      <div class="card kpi red"><div class="v">4,526<small> MW</small></div><div class="l">2025 年光電目標缺口（22.6%），新增裝置量連續兩年減少；20 GW 目標延到 2026/11<span class="tag t-v">查證</span></div></div>
+      <div class="card kpi"><div class="v">&lt;5<small> %</small></div><div class="l">全台綠電流向 RE100 會員的比例，國內供給明顯不足<span class="tag t-v">查證</span></div></div>
+    </div>
+    <div class="grid g2" style="margin-top:20px;align-items:start">
+      <div>
+        <div class="kicker">圖表 1　同一產業的剪刀差：營收年增率（2026 年累計）</div>
+        <svg viewBox="0 0 560 220" width="560" height="220">
+          <line x1="280" y1="10" x2="280" y2="200" stroke="#1A1A1A" stroke-width="1"/>
+          <rect x="280" y="40" width="218" height="48" fill="#2251FF"/>
+          <text x="505" y="70" font-size="18" font-weight="700" fill="#051C2C">+62%</text>
+          <text x="270" y="60" font-size="13" text-anchor="end" fill="#1A1A1A">天能綠電（售電）</text>
+          <text x="270" y="78" font-size="11" text-anchor="end" fill="#5F6B7A">1–9 月營收 26.97 億</text>
+          <rect x="100" y="120" width="180" height="48" fill="#C8102E"/>
+          <text x="92" y="150" font-size="18" font-weight="700" text-anchor="end" fill="#C8102E">−51%</text>
+          <text x="290" y="140" font-size="13" fill="#1A1A1A">進能服（EPC）</text>
+          <text x="290" y="158" font-size="11" fill="#5F6B7A">1–8 月營收 5.55 億</text>
+          <text x="280" y="215" font-size="11" text-anchor="middle" fill="#5F6B7A">0%</text>
+        </svg>
+      </div>
+      <div>
+        <div class="kicker">意涵</div>
+        <ul class="b">
+          <li>景氣差的是<b>開發與 EPC 端</b>：地面型受阻、躉購費率下滑、工程毛利被壓縮<span class="tag t-i">推論</span></li>
+          <li><b>售電端反而在成長</b>，而且資本市場願意給長約平台溢價（見下頁）</li>
+          <li>讓工程能力搭上售電端的成長，是這個平台成立的理由；奇景提供的是<b>生態系買方</b>，這是國泰和進能服都給不了的</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：旺得富引述天能綠電（成長率為業者預估）；CSRone 引述 TCAN；聯合報引述審計部；茂鴻電力引述 RE100 台灣報告（二手）；Yahoo 股市公告；nStock</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）四個數字說明需求：去年綠電交易 58 億度，台積電到 2030 年還缺 80 億度。但供給端在萎縮，光電目標去年缺了 4,500 MW。最能說明情況的是左下這張圖：同一個產業，售電商天能營收年增 62%，做工程的進能服衰退 51%。價值正從工程端移往售電端。奇景在這裡能提供的獨特價值，是半導體生態系的買方。</aside>
+</section>
+
+<!-- 4 BENCHMARK -->
+<section class="slide" data-sec="市場機會" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">對標天能綠電：每度只賺約 0.15 元，資本市場付的是「長約與平台」，不是價差</h1>
+  <div class="body">
+    <div class="grid" style="grid-template-columns:1.15fr 1fr;gap:28px">
+      <div>
+        <div class="kicker">圖表 2　天能綠電（7842）單位經濟</div>
+        <table>
+          <tr><th>項目</th><th>2025 年</th><th>2026 上半年</th></tr>
+          <tr><td>營收</td><td>22.85 億（+123%）</td><td>16.76 億</td></tr>
+          <tr><td>稅後淨利</td><td>5,969 萬</td><td>5,157 萬</td></tr>
+          <tr><td>轉供／交易量</td><td>約 4.2 億度（市占逾 22%）</td><td>3.05 億度</td></tr>
+          <tr class="hl"><td><b>每度營收</b></td><td><b>約 5.44 元</b></td><td><b>約 5.50 元</b></td></tr>
+          <tr class="hl"><td><b>每度淨利</b></td><td><b>約 0.142 元</b></td><td><b>約 0.169 元</b></td></tr>
+          <tr><td>估值</td><td colspan="2">承銷市值約 19.8 億，約 27 倍本益比；首日收盤約 31 倍<span class="tag t-i">推論</span></td></tr>
+          <tr><td>長約存量</td><td colspan="2">累計轉供合約 341 億度，逾九成為 10 年以上長約；客戶約 60 家，半導體與電子占四成<span class="tag t-v">查證</span></td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="kicker">獲利來源</div>
+        <div class="card" style="margin-bottom:10px"><h3>① 買賣價差</h3><p>扣除轉供費、餘電與匹配損失後才是淨額，很薄</p></div>
+        <div class="card" style="margin-bottom:10px"><h3>② 規模攤薄固定成本</h3><p>量大才賺錢；發售電業務毛利率只有 7–12%<span class="tag t-v">查證</span></p></div>
+        <div class="card blue"><h3>③ 長約鎖量 → 估值溢價</h3><p>母公司雲豹 2025 年 EPS −4.20，售電子公司天能獲利並單獨上櫃：<b>售電平台適合分開估值</b></p></div>
+      </div>
+    </div>
+    <div class="so">百綠 100 MW 約年發 <b>1.2 億度</b>；照天能的利潤率，售電淨利一年約 <b>1,700–2,000 萬</b>。前三年主要的獲利來源是<b>開發費</b>，平台價值要靠長約累積<span class="tag t-i" style="background:#1d3a55;color:#BFE6FF">推論</span></div>
+  </div>
+  <footer><div class="src">資料來源：經濟日報、旺得富、科技新報、工商時報（天能財務）；富果法說會備忘錄（雲豹毛利率）；FinLab（雲豹 EPS）；每度數據為本團隊依公開財報計算</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）天能是最好的對標。它每度電只賺 0.14 到 0.17 元，但上櫃時有 27 到 31 倍本益比。市場付錢買的是 341 億度的長約和平台。另一個重點：雲豹本身虧損，但售電子公司天能賺錢、而且單獨上市，代表售電平台可以分開估值。這就是百綠可以走的路。也先講清楚：照天能的利潤率，100 MW 一年售電淨利大約兩千萬，前三年主要靠開發費。</aside>
+</section>
+
+<!-- 5 PROBLEMS -->
+<section class="slide" data-sec="方案設計" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">原案把三個角色疊在百綠身上，會計、買方、規模三個風險會同時出現</h1>
+  <div class="body">
+    <div class="kicker">原案：百綠＝開發者＋固定價全量包銷買方＋SPV 管理者，電量全數轉供台積電</div>
+    <div class="grid g3" style="margin-top:10px">
+      <div class="card red">
+        <h3>① 表外目的可能被打破</h3>
+        <ul class="b">
+          <li><b>IFRS 16 隱含租賃：</b>百綠設計案場又包下幾乎全部電量 → 認列租賃負債，透過百綠回到奇景合併報表</li>
+          <li><b>IFRS 10 實質控制：</b>三重角色加上承擔電價變動 → 最壞情況是 SPV（含專案融資）全額併入</li>
+          <li><b>IFRS 9：</b>固定價買進、轉賣賺價差 → 可能被視為衍生工具，損益會波動</li>
+        </ul>
+      </div>
+      <div class="card red">
+        <h3>② 單一買家把價差壓薄</h3>
+        <ul class="b">
+          <li>100 MW 只占台積電年用電約 <b>0.4%</b>、占其 2030 年缺口約 1.5%，議價力完全在對方<span class="tag t-i">推論</span></li>
+          <li>台積電偏好 20 年固定價；百綠向 SPV 也是固定價買入 → <b>兩端鎖死</b></li>
+          <li>2026 年綠電轉供費調到 0.3052 元／度（+57%），直接吃掉價差<span class="tag t-v">查證</span></li>
+        </ul>
+      </div>
+      <div class="card red">
+        <h3>③ 6→100 MW 補不起來</h3>
+        <ul class="b">
+          <li>三年要新增 94 MW，平均每年 31 MW</li>
+          <li>進能服在手訂單約 88 MW、在建約 34 MW；光靠這個案源只能撐到 <b>30–50 MW</b><span class="tag t-i">推論</span></li>
+          <li>光電新增量連續兩年下滑，沒有既有資產轉換，三年達標的機率偏低</li>
+        </ul>
+      </div>
+    </div>
+    <div class="so">結論：表外能不能守住，關鍵不在 <b>5%</b> 這個數字，而在<b>百綠的角色有沒有疊在一起</b></div>
+  </div>
+  <footer><div class="src">資料來源：IFRS 9／10／16、IAS 28 依準則撰寫，須由簽證會計師確認；科技新報（台積電用電 287.7 億度）；RECCESSARY（輸配電費）；富果法說會備忘錄（進能服訂單）</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）為什麼原案不能照提？第一，會計。百綠又設計案場、又全量包銷、又當管理者，會碰到隱含租賃和實質控制，負債可能回到奇景，正好打掉表外的目的。第二，買方。100 MW 只占台積電用電的 0.4%，價格由對方決定，兩端又都是固定價，轉供費一漲價差就沒了。第三，規模。進能服的案源大約撐到 30 到 50 MW，剩下要靠收購。結論是：問題不在 5%，在角色有沒有疊在一起。</aside>
+</section>
+
+<!-- 6 ARCHITECTURE -->
+<section class="slide" data-sec="方案設計" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">建議架構：國泰持有資產、百綠做輕資產的開發與代理售電、進能服承攬工程維運</h1>
+  <div class="body">
+    <div class="dg">
+      <svg viewBox="0 0 1168 470" width="1168" height="470">
+        <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#051C2C"/></marker>
+        <marker id="arT" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#14868C"/></marker></defs>
+        <line x1="440" y1="66" x2="510" y2="138" stroke="#051C2C" stroke-width="1.5" marker-end="url(#ar)"/>
+        <line x1="730" y1="66" x2="660" y2="138" stroke="#051C2C" stroke-width="1.5" marker-end="url(#ar)"/>
+        <line x1="272" y1="185" x2="378" y2="185" stroke="#051C2C" stroke-width="1.5" marker-end="url(#ar)"/>
+        <line x1="898" y1="185" x2="792" y2="185" stroke="#051C2C" stroke-width="1.5" marker-end="url(#ar)"/>
+        <path d="M842 34 C 960 34, 1030 70, 1034 136" stroke="#5F6B7A" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+        <line x1="585" y1="232" x2="585" y2="270" stroke="#14868C" stroke-width="2"/>
+        <line x1="280" y1="270" x2="890" y2="270" stroke="#14868C" stroke-width="2"/>
+        <line x1="280" y1="270" x2="280" y2="326" stroke="#14868C" stroke-width="2" marker-end="url(#arT)"/>
+        <line x1="585" y1="270" x2="585" y2="326" stroke="#14868C" stroke-width="2" marker-end="url(#arT)"/>
+        <line x1="890" y1="270" x2="890" y2="326" stroke="#14868C" stroke-width="2" marker-end="url(#arT)"/>
+        <path d="M1034 234 L1034 300 L1022 326" stroke="#2251FF" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+      </svg>
+      <div class="box fill" style="left:330px;top:0;width:220px;height:66px"><b>國泰電業｜95%</b>資金、資產持有；要求報酬約 4.5–5%</div>
+      <div class="box" style="left:620px;top:0;width:220px;height:66px"><b>奇景｜5%</b>策略性少數股權（FVOCI 或權益法）</div>
+      <div class="box fill" style="left:380px;top:138px;width:410px;height:94px;background:#0B3A5B"><b>綠電資產 SPV</b>持有電站；售電、融資、預算、資本支出等攸關決策權留在 SPV 董事會（國泰多數）</div>
+      <div class="box" style="left:0;top:138px;width:272px;height:94px"><b>進能服</b>EPC＋O&amp;M｜MSA 比價後可優先跟價，加上開發費分潤</div>
+      <div class="box blue" style="left:898px;top:138px;width:270px;height:94px"><b>百綠</b>開發（收開發費）＋代理售電（收服務費或部分價差）；管理合約可隨時解任</div>
+      <div class="lbl" style="left:282px;top:162px">工程・維運</div>
+      <div class="lbl" style="left:806px;top:162px">開發・管理</div>
+      <div class="lbl" style="left:900px;top:46px">持股關係待確認</div>
+      <div class="lbl" style="left:600px;top:244px;color:#14868C">綠電轉供（組合池，不指定單一案場）</div>
+      <div class="lbl" style="left:1040px;top:282px;color:#2251FF">代理售電</div>
+      <div class="box buyer" style="left:150px;top:326px;width:260px;height:76px"><b>台積電　50–60%</b>錨定買方；經彈性分配計畫進入</div>
+      <div class="box buyer" style="left:455px;top:326px;width:260px;height:76px"><b>半導體生態系　30–40%</b>零售綠電價 5.5–6.3 元，價差最厚</div>
+      <div class="box buyer" style="left:760px;top:326px;width:260px;height:76px"><b>同業互售　約 10%</b>2025 年電業法修正開放；吸收餘電</div>
+      <div style="position:absolute;left:0;right:0;top:420px;display:flex;gap:12px;font-size:13px">
+        <div style="flex:1;border-left:3px solid var(--blue);padding:4px 10px;background:var(--light)"><b>設計 1</b>　百綠不做固定價全量包銷</div>
+        <div style="flex:1;border-left:3px solid var(--blue);padding:4px 10px;background:var(--light)"><b>設計 2</b>　設計權歸 SPV，由進能服以 SPV 名義設計</div>
+        <div style="flex:1;border-left:3px solid var(--blue);padding:4px 10px;background:var(--light)"><b>設計 3</b>　組合池供電，避開「已辨認資產」</div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="src">註：買方比例與各項設計為建議方案；百綠與奇景的持股關係須以商工登記及 20-F 子公司清單確認<span class="tag t-u">未查證</span></div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）這是建議的架構。上面是股權：國泰 95%、奇景 5%，SPV 持有電站，重要決策留在 SPV 董事會。左邊進能服做工程和維運，比價後可以優先跟價。右邊百綠做開發和代理售電，收開發費和服務費，管理合約可以隨時解任，讓它在會計上是代理人。下面是買方池，三種買方分散。底下三個設計是守住表外的關鍵：不全量包銷、設計權歸 SPV、組合池供電。</aside>
+</section>
+
+<!-- 7 OPTIONS -->
+<section class="slide" data-sec="方案設計" data-min="1">
+  <div class="tracker"></div>
+  <h1 class="title">四種主導權選項中，只有「國泰主導＋百綠輕資產」能同時守住表外並保留成長</h1>
+  <div class="body">
+    <div class="kicker">圖表 3　主導權選項評估（●＝最佳　○＝最差）<span class="tag t-i">推論</span></div>
+    <table style="font-size:13.5px">
+      <tr><th style="width:24%">選項</th><th>表外（負債不進奇景）</th><th>資金成本</th><th>奇景對電源的影響力</th><th>可執行性</th><th style="width:28%">主要代價</th></tr>
+      <tr><td><b>A 國泰主導（原案）</b><br><span class="muted">95/5，百綠全量包銷</span></td><td><span class="dot d1"></span></td><td><span class="dot d4"></span></td><td><span class="dot d3"></span></td><td><span class="dot d2"></span></td><td>三重角色觸發 IFRS 10／16；§146-5 審批慢</td></tr>
+      <tr><td><b>B 奇景主導</b><br><span class="muted">奇景 51% 以上</span></td><td><span class="dot d0"></span></td><td><span class="dot d1"></span></td><td><span class="dot d4"></span></td><td><span class="dot d2"></span></td><td>SPV 負債全額併表，違背核心目的</td></tr>
+      <tr><td><b>C 50/50 合資</b><br><span class="muted">共同控制，權益法</span></td><td><span class="dot d3"></span></td><td><span class="dot d2"></span></td><td><span class="dot d3"></span></td><td><span class="dot d1"></span></td><td>奇景出資放大到 10 倍；國泰未必接受平權</td></tr>
+      <tr class="hl"><td><b class="rec">D 國泰主導＋百綠輕資產（建議）</b><br><span class="muted">95/5，百綠只做開發＋代理售電</span></td><td><span class="dot d4"></span></td><td><span class="dot d4"></span></td><td><span class="dot d2"></span></td><td><span class="dot d3"></span></td><td>百綠每度價差變薄，要靠量與開發費</td></tr>
+    </table>
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card blue"><h3>為什麼選 D</h3><p>會計風險最低；百綠是輕資產，可以獨立估值（天能模式）；國泰低資金成本、有 283 MW 存量可轉換。</p></div>
+      <div class="card"><h3>要接受的取捨</h3><p>奇景對電源分配的影響力透過「代理售電＋生態系買方」實現，而不是透過持股。</p></div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：國泰電業官網（283 MW）；壽險公會法規查詢系統（保險法 §146-5）；評分為本團隊判斷，會計結論待簽證會計師確認</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分鐘）我們比較了四種選項。奇景主導會讓負債全部進來；50/50 要出十倍的錢；原案有三重角色的問題。建議選 D：股權和原案一樣是 95 比 5，但百綠不做全量包銷。代價是每度價差變薄，要靠量和開發費補。奇景對電源的影響力，改由代理售電和生態系買方來實現。</aside>
+</section>
+
+<!-- 8 VALUE TO PARTIES -->
+<section class="slide" data-sec="方案設計" data-min="1">
+  <div class="tracker"></div>
+  <h1 class="title">每一方都拿到自己缺的那一塊，合作才站得住；奇景的獨特貢獻是生態系買方</h1>
+  <div class="body">
+    <table style="font-size:13.5px">
+      <tr><th style="width:13%">參與方</th><th style="width:30%">投入</th><th style="width:33%">得到</th><th>它缺什麼／為什麼需要這個平台</th></tr>
+      <tr class="hl"><td><b>奇景</b></td><td>5% 股權（約 0.6–0.9 億元）；生態系客戶關係</td><td>百綠的開發費與售電平台估值；綠電成為生態系關係的籌碼；負債留在表外</td><td>本身沒有 RE100／SBTi 剛性需求，價值在「新事業」與「生態系」<span class="tag t-v">查證</span></td></tr>
+      <tr><td><b>國泰電業</b></td><td>95% 資金；既有資產與融資能力</td><td>穩定的資產擴張與案源；外部管理者</td><td>2025 年 400 MW 目標未達（目前 283 MW）；§146-5 不得派保險業人員任經理人</td></tr>
+      <tr><td><b>百綠</b></td><td>開發、售電執照、代理售電、多客戶匹配</td><td>開發費＋服務費／價差；平台估值（天能路徑）</td><td>目前規模約 6 MW、團隊只有總經理，需要資產方與案源</td></tr>
+      <tr><td><b>進能服</b></td><td>EPC、O&amp;M、案源（在手訂單約 88 MW）</td><td>比價後優先跟價的承攬機會；開發費分潤</td><td>EPC 景氣下行（2026Q1 毛利率 −22.44%），需要搭上售電端的成長</td></tr>
+      <tr><td><b>買方</b></td><td>長約承諾</td><td>穩定綠電來源；生態系可取得價格合理的綠電</td><td>台積電 2030 年缺約 80 億度；中小型 IC 設計零售價 5.5–6.3 元</td></tr>
+    </table>
+    <div class="so">國泰有錢、進能服會蓋、百綠能賣、奇景帶來買方：<b>四塊缺一塊，平台就轉不起來</b></div>
+  </div>
+  <footer><div class="src">資料來源：國泰電業官網；自由財經（國壽 2025 年目標）；nStock、富果（進能服）；奇景官網環境政策；鉅亨網、工商時報（小額綠電價格）</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分鐘）合作要穩，每一方都要拿到自己缺的東西。國泰有錢但缺管理者和案源；進能服會蓋，但工程景氣差；百綠有執照但規模小；奇景能帶進生態系買方，這是國泰和進能服都給不了的。四塊缺一塊，平台就轉不起來。</aside>
+</section>
+
+<!-- 9 REVENUE MODEL -->
+<section class="slide" data-sec="商業模式與財務" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">奇景真正的價值在百綠的開發費與平台估值，5% 股利一年只有數百萬元</h1>
+  <div class="body">
+    <div class="grid" style="grid-template-columns:1.25fr 1fr;gap:30px">
+      <div>
+        <div class="kicker">圖表 4　100 MW 規模下的年化收益數量級（百萬元／年）<span class="tag t-i">推論</span></div>
+        <svg viewBox="0 0 640 300" width="640" height="300">
+          <g font-size="12" fill="#1A1A1A">
+            <line x1="200" y1="10" x2="200" y2="250" stroke="#1A1A1A"/>
+            <!-- scale: 1M = 4px (100M => 400px) -->
+            <text x="190" y="48" text-anchor="end" font-weight="700">百綠開發費</text>
+            <text x="190" y="64" text-anchor="end" fill="#5F6B7A" font-size="11">三年累計 1–3 億，年化</text>
+            <rect x="200" y="30" width="133" height="40" fill="#2251FF"/>
+            <rect x="333" y="30" width="267" height="40" fill="#2251FF" opacity=".35"/>
+            <text x="606" y="56" font-weight="700">33–100</text>
+            <text x="190" y="128" text-anchor="end" font-weight="700">百綠售電價差（毛額）</text>
+            <text x="190" y="144" text-anchor="end" fill="#5F6B7A" font-size="11">0.15–0.4 元 × 1.22 億度</text>
+            <rect x="200" y="110" width="72" height="40" fill="#00A9F4"/>
+            <rect x="272" y="110" width="124" height="40" fill="#00A9F4" opacity=".35"/>
+            <text x="402" y="136" font-weight="700">18–49</text>
+            <text x="190" y="208" text-anchor="end" font-weight="700">奇景 5% 股利</text>
+            <text x="190" y="224" text-anchor="end" fill="#5F6B7A" font-size="11">權益報酬 5%</text>
+            <rect x="200" y="190" width="12" height="40" fill="#5F6B7A"/>
+            <rect x="212" y="190" width="6" height="40" fill="#5F6B7A" opacity=".35"/>
+            <text x="226" y="216" font-weight="700">3–4.5</text>
+            <text x="200" y="272" fill="#5F6B7A" font-size="11">深色＝區間下限；淺色＝延伸至上限</text>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <div class="kicker">三層收入</div>
+        <div class="card blue" style="margin-bottom:10px"><h3>① 開發費（前三年主力）</h3><p>資本支出的 2–5%，以 COD 或作價完成為觸發點<span class="tag t-u">行情未查證</span></p></div>
+        <div class="card cyan" style="margin-bottom:10px"><h3>② 售電價差／代理服務費</h3><p>生態系零售客群價差最厚；台積電長約最薄但量最穩</p></div>
+        <div class="card"><h3>③ 平台估值（長期）</h3><p>長約存量累積後，可比照天能單獨估值（上櫃時約 27–31 倍本益比）</p></div>
+      </div>
+    </div>
+    <div class="so">簡報的重點應放在「<b>百綠的開發費＋售電平台估值</b>」，不是 5% 的分紅</div>
+  </div>
+  <footer><div class="src">註：全部為數量級推論，供討論用。假設：每 MW 造價 5,000–6,000 萬元（雲豹法說）；每 kW 年發 1,219 度（國泰電業 3.45 億度／283 MW）；SPV 自有資金比 25–30%</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）這張圖回答「奇景能賺多少」。5% 股利一年只有三、四百萬，幾乎可以忽略。真正的價值在百綠：開發費三年累計一到三億，年化約三千萬到一億；售電價差一年約兩千到五千萬。長期則是平台估值，天能上櫃時有約 30 倍本益比。這些都是數量級的推論，開發費比例的市場行情還要再查。</aside>
+</section>
+
+<!-- 10 BUYER STRATEGY -->
+<section class="slide" data-sec="商業模式與財務" data-min="1">
+  <div class="tracker"></div>
+  <h1 class="title">買方以台積電為錨但不獨家：用生態系拉高價差，用同業互售吸收餘電</h1>
+  <div class="body">
+    <div class="kicker">圖表 5　建議買方組合（占電量比例）</div>
+    <svg viewBox="0 0 1168 70" width="1168" height="70">
+      <rect x="0" y="10" width="642" height="44" fill="#051C2C"/><text x="16" y="38" fill="#fff" font-size="15" font-weight="700">台積電錨定 50–60%</text>
+      <rect x="642" y="10" width="409" height="44" fill="#14868C"/><text x="658" y="38" fill="#fff" font-size="15" font-weight="700">半導體生態系 30–40%</text>
+      <rect x="1051" y="10" width="117" height="44" fill="#A2AAB4"/><text x="1062" y="38" fill="#fff" font-size="14" font-weight="700">同業 ~10%</text>
+    </svg>
+    <table style="margin-top:8px;font-size:13.5px">
+      <tr><th style="width:18%">買方</th><th style="width:27%">扮演的角色</th><th style="width:27%">價格／條件</th><th>進入方式</th></tr>
+      <tr><td><b>台積電</b></td><td>信用與名號，支撐 SPV 可融資性</td><td>20 年固定價，成交價未公開；價差最薄</td><td>先以「綠電彈性分配試行計畫」切入（逾 40 家業者、15 分鐘匹配）<span class="tag t-v">查證</span></td></tr>
+      <tr><td><b>半導體生態系</b></td><td>奇景獨有的客群；價差最厚</td><td>零售綠電 5.5–6.3 元（台電 2026 小額綠電 5.8–6.3 元）</td><td>B2B 年約、日間型產品；大型封測與晶圓廠也是用電大戶條款的義務人</td></tr>
+      <tr><td><b>同業互售</b></td><td>餘電出口，降低違約與匹配風險</td><td>依市場議價</td><td>2025/5/9 電業法修正開放同業互售<span class="tag t-v">查證</span></td></tr>
+    </table>
+    <div class="so">必須取捨：「全數轉供台積電」和「分給生態系」在電量上<b>互斥</b>。100 MW 本身不大，簡報裡不能寫成兩者都能做到</div>
+  </div>
+  <footer><div class="src">資料來源：RECCESSARY（台積電彈性分配計畫）；鉅亨網、工商時報（小額綠電價格）；法源法律網、中央社（電業法修正）；比例為建議方案</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分鐘）買方建議以台積電為錨，大約五到六成，撐起名號和融資；三到四成給生態系，這是價差最厚、也是奇景獨有的客群；一成給同業吸收餘電，去年電業法修正後已經可以這樣做。要坦白一點：全賣台積電和分給生態系是互斥的，只能選一個為主。進入台積電的實際管道，是它的彈性分配計畫，比單獨簽長約可行。</aside>
+</section>
+
+<!-- 11 ACCOUNTING -->
+<section class="slide" data-sec="商業模式與財務" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">守住表外靠合約設計：四個會計議題各有對策，提案前先取得會計師初步意見</h1>
+  <div class="body">
+    <table style="font-size:12.8px">
+      <tr><th style="width:15%">議題</th><th style="width:26%">本案觸發點</th><th style="width:24%">最壞後果</th><th style="width:30%">合約設計對策</th><th>殘餘風險</th></tr>
+      <tr><td><b>5% 的分類</b><br>IFRS 9／IAS 28</td><td>拿到 SPV 董事席（§146-5 使國泰董事上限為三分之二）</td><td>改用權益法；<b>SPV 負債仍不進奇景</b></td><td>可接受；事先和會計師確認分類</td><td><span class="dot d1"></span> 低</td></tr>
+      <tr><td><b>實質控制</b><br>IFRS 10</td><td>百綠主導選址、決定售電對象、擔任管理者、承擔電價變動</td><td><b>SPV 含專案融資全額併入</b></td><td>攸關決策留在 SPV 董事會；百綠管理合約可隨時解任、採市場行情固定費</td><td><span class="dot d2"></span> 中</td></tr>
+      <tr><td><b>隱含租賃</b><br>IFRS 16</td><td>百綠設計案場＋固定價包下特定案場全部電量</td><td>百綠認列租賃負債，回到奇景合併報表</td><td>包銷比例明顯低於「幾乎全部」；設計權歸 SPV；組合池供電</td><td><span class="dot d2"></span> 中</td></tr>
+      <tr><td><b>衍生工具</b><br>IFRS 9</td><td>固定價買進、轉賣賺價差</td><td>按公允價值逐期認列，損益波動</td><td>由台積電等買方與 SPV 直接簽約，百綠收代理服務費</td><td><span class="dot d1"></span> 低</td></tr>
+    </table>
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card"><h3>補充</h3><p>IASB 2024/12/18 發布「自然依賴型電力合約」修正（2026/1/1 起適用），主要擴大「自用」例外，<b>對淨買方友善、對轉售商未必適用</b><span class="tag t-v">查證</span>；台灣採用時程未查證。</p></div>
+      <div class="card blue"><h3>最安全的設計</h3><p>百綠只做「開發（收作價開發費）＋代理售電（收服務費或部分價差）」，<b>不做固定價全量包銷的主買方</b>。</p></div>
+    </div>
+  </div>
+  <footer><div class="src">註：IFRS 判斷依準則撰寫，未逐字查證，須由奇景簽證會計師出具意見；「幾乎全部」實務常以約 90% 為參考，準則本身沒有數字。資料來源：IFRS.org、EY（IFRS 9／7 修正）</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）這頁是董總最在意的負債比。四個議題：5% 就算改成權益法，SPV 負債也不會進來，可以接受。真正要防的是實質控制和隱含租賃，對策都在合約：決策權留在 SPV、管理合約可解任、不全量包銷、設計權歸 SPV、組合池供電。衍生工具則讓買方和 SPV 直接簽約，百綠只收服務費。這些都要請會計師在提案前出具初步意見，我建議把它當作第 0 個閘門。</aside>
+</section>
+
+<!-- 12 REGULATORY -->
+<section class="slide" data-sec="商業模式與財務" data-min="1">
+  <div class="tracker"></div>
+  <h1 class="title">法規路徑已經打開：同業互售提供多買方法源，主要成本變數是轉供費</h1>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card blue"><div class="kicker">電業法 2025/5/9 修正<span class="tag t-v">查證</span></div><p>刪除再生能源售電業「只能賣給用戶」的限制，開放同業互售；納管併網型儲能與需量反應</p><p class="muted" style="margin-top:6px">→ 多買方版本的法源依據</p></div>
+      <div class="card red"><div class="kicker">轉供費 0.3052 元／度<span class="tag t-v">查證</span></div><p>2026 年綠電轉供電網使用費漲約 57%，優惠逐年退場</p><p class="muted" style="margin-top:6px">→ 購售電合約須約定由誰負擔、能否轉嫁</p></div>
+      <div class="card"><div class="kicker">T-REC 零股化<span class="tag t-v">查證</span></div><p>2026/1/22 起每月結算電量零股化；憑證 1 張＝1,000 度</p><p class="muted" style="margin-top:6px">→ 運維須提供逐 15 分鐘發電數據</p></div>
+      <div class="card"><div class="kicker">保險法 §146-5<span class="tag t-v">查證</span></div><p>保險業派任董監事不得超過三分之二；不得指派保險業人員兼任被投資事業經理人</p><p class="muted" style="margin-top:6px">→ SPV 需要外部管理者；是否穿透適用國泰電業，待律師確認</p></div>
+      <div class="card"><div class="kicker">用電大戶條款<span class="tag t-v">查證</span></div><p>契約容量 5,000 瓩以上須設置 10% 再生能源、儲能或購買憑證；2025/1 檢討決定不調整</p><p class="muted" style="margin-top:6px">→ 生態系大型封測、晶圓廠是潛在買方</p></div>
+      <div class="card"><div class="kicker">售電業資格<span class="tag t-u">未查證</span></div><p>百綠已列在能源署再生能源售電業名單</p><p class="muted" style="margin-top:6px">→ 確認執照有效範圍與年度申報義務即可</p></div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：中央社、法源法律網、普華商務法律事務所（電業法）；RECCESSARY（輸配電費）；國家再生能源憑證中心；壽險公會法規查詢系統；環境資訊中心（用電大戶）；經濟部能源署（售電業名單）</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分鐘）法規面，好消息是去年電業法修正開放同業互售，多買方有了法源。主要的成本變數是轉供費，今年漲了 57%，合約一定要寫清楚誰負擔。保險法 146-5 條規定國泰不能派自己人當經理人，所以 SPV 一定需要外部管理者，這正是百綠的位置，但也是我們要小心控制風險的地方。</aside>
+</section>
+
+<!-- 13 FINANCIALS -->
+<section class="slide" data-sec="商業模式與財務" data-min="1.5">
+  <div class="tracker"></div>
+  <h1 class="title">財務數量級清楚，但價差空間未知：買價下限與賣價上限的夾擠是提案前最需要驗證的數字</h1>
+  <div class="body">
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:30px">
+      <div>
+        <div class="kicker">圖表 6　100 MW 財務粗估<span class="tag t-i">推論</span></div>
+        <table style="font-size:13px">
+          <tr><th>項目</th><th>假設</th><th>結果</th></tr>
+          <tr><td>資本支出</td><td>每 MW 5,000–6,000 萬元</td><td><b>50–60 億元</b></td></tr>
+          <tr><td>年發電</td><td>每 kW 1,219 度</td><td><b>約 1.22 億度</b></td></tr>
+          <tr><td>SPV 權益</td><td>自有資金比 25–30%</td><td>12.5–18 億元</td></tr>
+          <tr class="hl"><td>奇景出資</td><td>5%</td><td><b>約 0.6–0.9 億元</b></td></tr>
+          <tr><td>奇景股利</td><td>權益報酬 5%</td><td>每年 300–450 萬元</td></tr>
+          <tr><td>百綠價差（毛額）</td><td>每度 0.15–0.4 元</td><td>每年 1,800–4,900 萬元</td></tr>
+          <tr><td>百綠開發費</td><td>資本支出 2–5%</td><td>三年累計 1–3 億元</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="kicker">圖表 7　價格夾擠（元／度）</div>
+        <svg viewBox="0 0 540 330" width="540" height="330">
+          <g font-size="11.5" fill="#1A1A1A">
+            <!-- y: 0 at 300, 7 at 20 => 40px per 元 -->
+            <line x1="60" y1="20" x2="60" y2="300" stroke="#A2AAB4"/>
+            <text x="50" y="304" text-anchor="end" fill="#5F6B7A">0</text>
+            <text x="50" y="184" text-anchor="end" fill="#5F6B7A">3</text>
+            <text x="50" y="144" text-anchor="end" fill="#5F6B7A">4</text>
+            <text x="50" y="104" text-anchor="end" fill="#5F6B7A">5</text>
+            <text x="50" y="64" text-anchor="end" fill="#5F6B7A">6</text>
+            <text x="50" y="24" text-anchor="end" fill="#5F6B7A">7</text>
+            <rect x="80" y="140" width="80" height="40" fill="#5F6B7A"/>
+            <text x="120" y="200" text-anchor="middle">躉購替代</text><text x="120" y="215" text-anchor="middle" fill="#5F6B7A">3–4（買價下限）</text>
+            <rect x="180" y="126" width="80" height="4" fill="#051C2C"/>
+            <text x="220" y="118" text-anchor="middle">平價綠電底價 4.3</text>
+            <rect x="280" y="76" width="80" height="12" fill="#2251FF" opacity=".25" stroke="#2251FF" stroke-dasharray="4 3"/>
+            <text x="320" y="106" text-anchor="middle" fill="#2251FF">台積電長約</text><text x="320" y="121" text-anchor="middle" fill="#2251FF">未公開（賣價上限）</text>
+            <rect x="380" y="48" width="80" height="20" fill="#14868C"/>
+            <text x="420" y="40" text-anchor="middle">小額綠電 5.8–6.3</text>
+            <text x="420" y="84" text-anchor="middle" fill="#5F6B7A">生態系零售</text>
+            <line x1="60" y1="240" x2="500" y2="240" stroke="#C8102E" stroke-dasharray="3 3"/>
+            <text x="470" y="234" text-anchor="end" fill="#C8102E">再扣轉供費 0.3052＋匹配損失</text>
+          </g>
+        </svg>
+        <p style="font-size:13px">買價下限＝SPV 賣台電躉購的替代收入＋國泰 4.5–5% 報酬門檻；賣價上限＝台積電長約價。<b>中間能分給百綠多少，目前未知。</b></p>
+      </div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：富果（雲豹每 MW 造價）；國泰電業官網；鉅亨網、工商時報（小額綠電、平價綠電）；RECCESSARY（轉供費）；台積電成交價無公開資料；圖中台積電區間位置僅示意</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分 30 秒）財務數量級：100 MW 需要五、六十億資本支出，奇景 5% 大約出六千萬到九千萬。但我要坦白：最關鍵的數字還不知道，就是價差。右邊這張圖，下面是 SPV 的替代選項，賣台電躉購約三到四元，加上國泰的報酬門檻；上面是台積電長約價，沒有公開。中間扣掉轉供費之後能分多少，是提案前最需要驗證的數字。生態系零售價 5.8 到 6.3 元，是價差最厚的地方。</aside>
+</section>
+
+<!-- 14 GATES -->
+<section class="slide" data-sec="執行與風險" data-min="1">
+  <div class="tracker"></div>
+  <h1 class="title">規模改為 30／60／100 MW 三個閘門：每一階段先驗證再加碼，都保留退出點</h1>
+  <div class="body">
+    <div class="grid" style="grid-template-columns:0.8fr 1fr 1fr 1fr;gap:14px">
+      <div class="gate" style="border-left-color:var(--navy)"><div class="kicker">閘門 0｜90 天</div><div class="mw" style="font-size:22px">前置驗證</div><ul class="b" style="margin-top:8px"><li>百綠持股確認</li><li>會計師初步意見</li><li>國泰非正式初談</li><li>價差區間驗證</li></ul></div>
+      <div class="gate"><div class="kicker">閘門 1｜第 1 年</div><div class="mw">30 MW</div><p style="margin-top:6px"><b>案源：</b>進能服在手訂單（約 88 MW）＋收購 FIT 轉換案</p><p style="margin-top:6px"><b>通過條件：</b>首批長約簽定；百綠團隊到位；表外結構經會計師確認</p></div>
+      <div class="gate"><div class="kicker">閘門 2｜第 2 年</div><div class="mw">60 MW</div><p style="margin-top:6px"><b>案源：</b>既有 FIT 電廠期滿或可轉換者改為轉供</p><p style="margin-top:6px"><b>通過條件：</b>實際價差不低於模型；生態系買方達 30% 以上</p></div>
+      <div class="gate"><div class="kicker">閘門 3｜第 3 年</div><div class="mw">100 MW</div><p style="margin-top:6px"><b>案源：</b>收購國泰電業 283 MW 存量中可轉綠電的部分</p><p style="margin-top:6px"><b>通過條件：</b>長約存量足以支撐平台單獨估值</p></div>
+    </div>
+    <div class="card red" style="margin-top:16px"><h3>退出點</h3><p>任一閘門未達條件就停在現有規模：SPV 由國泰持續持有，百綠維持代理售電與開發服務，奇景曝險以已投入的 5% 股權與百綠組織成本為上限。</p></div>
+    <div class="so">沒有既有資產轉換或併購，三年 100 MW 的機率偏低；<b>閘門的作用是讓每一步的投入都和已驗證的成果對齊</b></div>
+  </div>
+  <footer><div class="src">資料來源：富果法說會備忘錄（進能服在手訂單約 88 MW、在建約 34 MW，2025/12）；國泰電業官網（283 MW）；閘門條件為本團隊建議</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分鐘）規模不要一次承諾 100 MW。改成三個閘門：第一年 30 MW，用進能服的在手案源和收購 FIT 轉換案；第二年 60，第三年 100，需要轉換國泰既有的存量。每個閘門都有通過條件，沒過就停，奇景的損失上限就是 5% 股權加上百綠組織成本。在這之前還有一個 90 天的閘門 0。</aside>
+</section>
+
+<!-- 15 ORG -->
+<section class="slide" data-sec="執行與風險" data-min="0.5">
+  <div class="tracker"></div>
+  <h1 class="title">百綠第一年必須補齊四種職能、約 5–8 人，這是平台能運作的前提，不是選配</h1>
+  <div class="body">
+    <div class="grid g4">
+      <div class="card blue"><h3>開發與作價</h3><p>案源評估、FIT 電廠收購盡職調查、開發費作價</p></div>
+      <div class="card blue"><h3>交易與排程</h3><p>多客戶 15 分鐘匹配、彈性分配計畫、T-REC 零股化結算</p></div>
+      <div class="card blue"><h3>合約與法務</h3><p>購售電合約（價格調整、轉供費轉嫁、不可抗力、違約金上限）、管理合約</p></div>
+      <div class="card blue"><h3>財務</h3><p>「每度價差 × 量」模型、會計分類追蹤、平台估值準備</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card"><h3>現況</h3><p>百綠目前只有一位總經理，規模約 6 MW。</p></div>
+      <div class="card"><h3>預算</h3><p>依上述 5–8 人職級行情由財務編列，於閘門 0 一併提報<span class="tag t-u">待編列</span></p></div>
+    </div>
+    <div class="so">多客戶匹配與合約管理做不到，買方分散策略就只是紙上方案：<b>組織投資是說服國泰與買方的前提</b></div>
+  </div>
+  <footer><div class="src">註：職能與人數為本團隊推論；百綠現況依使用者陳述，公開資料未查證</div><div class="pg"></div></footer>
+  <aside class="notes">（30 秒）百綠要扮演開發和代理售電，第一年就要補齊開發、交易排程、合約法務、財務四種職能，約五到八人。現在只有一位總經理。這不是選配，國泰和買方都會先看百綠有沒有能力。預算會在閘門 0 一併提報。</aside>
+</section>
+
+<!-- 16 RISKS -->
+<section class="slide" data-sec="執行與風險" data-min="1">
+  <div class="tracker"></div>
+  <h1 class="title">八大結構性風險中，會計與買方集中度影響最大，都已有對應的緩解設計</h1>
+  <div class="body">
+    <table style="font-size:12.8px">
+      <tr><th style="width:4%">#</th><th style="width:22%">風險</th><th style="width:9%">影響</th><th style="width:9%">可能性</th><th>緩解措施</th></tr>
+      <tr><td>1</td><td><b>表外被購電合約打破</b></td><td><span class="dot d4"></span> 高</td><td><span class="dot d2"></span> 中</td><td>百綠角色不疊加；設計權歸 SPV；組合池；會計師初步意見列為閘門 0</td></tr>
+      <tr><td>2</td><td><b>台積電單一買家</b></td><td><span class="dot d4"></span> 高</td><td><span class="dot d3"></span> 中高</td><td>錨定但不獨家（50–60%）；轉供費轉嫁條款；同業互售吸收餘電</td></tr>
+      <tr><td>3</td><td>台積電與生態系分配互斥</td><td><span class="dot d2"></span> 中</td><td><span class="dot d4"></span> 確定</td><td>事先由董事會決定主次與比例</td></tr>
+      <tr><td>4</td><td>百綠團隊能力不足</td><td><span class="dot d3"></span> 中高</td><td><span class="dot d4"></span> 高</td><td>第一年 5–8 人組織投資；閘門 1 以團隊到位為條件</td></tr>
+      <tr><td>5</td><td>6→100 MW 供給落差</td><td><span class="dot d3"></span> 中高</td><td><span class="dot d3"></span> 中高</td><td>三個閘門；收購 FIT 轉換案與國泰存量</td></tr>
+      <tr><td>6</td><td>國泰保留售電權</td><td><span class="dot d3"></span> 中高</td><td><span class="dot d2"></span> 中</td><td>國泰已有統購經驗（2023 年協助 18 家轉供 1,349 萬度）→ 以生態系買方作為百綠的差異化</td></tr>
+      <tr><td>7</td><td>進能服財務體質</td><td><span class="dot d2"></span> 中</td><td><span class="dot d2"></span> 中</td><td>主動說明；比價後跟價、不談排他；以框架合約與履約保證回應信用審查</td></tr>
+      <tr><td>8</td><td>資訊缺口</td><td><span class="dot d2"></span> 中</td><td><span class="dot d4"></span> 確定</td><td>百綠持股、台積電成交價、二手電廠 IRR 列入 90 天驗證清單</td></tr>
+    </table>
+  </div>
+  <footer><div class="src">資料來源：CSR@天下（國壽統購綠電）；nStock（進能服財務）；影響與可能性評估為本團隊判斷</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分鐘）八個風險裡，影響最大的是會計和台積電單一買家，前面都已經講過對策。我想主動提第 6 和第 7 點：國泰自己也有統購綠電的經驗，可能想保留售電權，所以百綠的差異化必須是生態系買方。第 7 點，進能服今年財務偏弱，國泰做信用審查時可能要求較高的履約保證，我們主動說明，用比價跟價和框架合約處理。</aside>
+</section>
+
+<!-- 17 DECISIONS -->
+<section class="slide" data-sec="決策與下一步" data-min="1">
+  <div class="tracker"></div>
+  <h1 class="title">今天請董總決定四件事：方向確認，並授權 90 天前置驗證；投資決定留到閘門 0 之後</h1>
+  <div class="body">
+    <table style="font-size:14px">
+      <tr><th style="width:5%">#</th><th style="width:22%">決策事項</th><th style="width:38%">建議</th><th>替代方案</th></tr>
+      <tr class="hl"><td>1</td><td><b>主導權結構</b></td><td>國泰 95%／奇景 5%；百綠只做開發＋代理售電，不做固定價全量包銷</td><td>50/50 合資（出資約 10 倍）</td></tr>
+      <tr><td>2</td><td><b>買方比例</b></td><td>台積電 50–60%＋生態系 30–40%＋同業約 10%</td><td>生態系優先、台積電經彈性分配吸收餘量</td></tr>
+      <tr><td>3</td><td><b>進能服承攬方式</b></td><td>MSA 比價後優先跟價＋開發費分潤（以 COD 或作價完成為觸發）</td><td>框架合約（單價＋KPI＋履約保證）</td></tr>
+      <tr class="hl"><td>4</td><td><b>授權 90 天前置驗證</b></td><td>持股確認、會計師意見、國泰初談、價差驗證、30 MW 案源盤點；百綠組織預算一併提報</td><td>—</td></tr>
+    </table>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card"><div class="kicker">今天不需要決定</div><p>投資金額與簽約</p></div>
+      <div class="card"><div class="kicker">今天需要決定</div><p>方向，與前置驗證的授權</p></div>
+      <div class="card blue"><div class="kicker">下次回報</div><p>90 天後帶會計師意見與國泰立場，提閘門 0 決策</p></div>
+    </div>
+  </div>
+  <footer><div class="src">註：建議組合為「主導權 D＋買方 B＋承攬 A＋D」</div><div class="pg"></div></footer>
+  <aside class="notes">（1 分鐘）今天請董總決定四件事。前三件是方向：主導權結構、買方比例、進能服承攬方式。第四件是授權 90 天的前置驗證。今天不需要決定投資金額，90 天後我們會帶著會計師意見和國泰的立場回來，再請董總做閘門 0 的決定。</aside>
+</section>
+
+<!-- 18 NEXT 90 DAYS -->
+<section class="slide" data-sec="決策與下一步" data-min="0.5">
+  <div class="tracker"></div>
+  <h1 class="title">90 天行動計畫：先把三個不確定性變成已知，再回來請董總做投資決定</h1>
+  <div class="body">
+    <table style="font-size:13.5px">
+      <tr><th style="width:20%">工作項目</th><th style="width:26%">第 1–30 天</th><th style="width:26%">第 31–60 天</th><th>第 61–90 天</th></tr>
+      <tr><td><b>百綠持股確認</b></td><td>商工登記、20-F 子公司清單（Exhibit 8）</td><td>確認是否併表及揭露義務</td><td>—</td></tr>
+      <tr><td><b>會計師意見</b></td><td>提交架構與合約草案</td><td>IFRS 9／10／16、IAS 28 討論</td><td>取得初步意見書</td></tr>
+      <tr><td><b>國泰初談</b></td><td>非正式了解售電權立場</td><td>§146-5 穿透適用的律師意見</td><td>合作條件框架（MOU 草案）</td></tr>
+      <tr><td><b>價差驗證</b></td><td>台積電彈性分配計畫入口確認</td><td>生態系買方需求訪談</td><td>「每度價差 × 量」模型定稿</td></tr>
+      <tr><td><b>案源與組織</b></td><td>盤點 30 MW 第一階段案源</td><td>二手 FIT 電廠收購標的</td><td>百綠組織與第一年預算</td></tr>
+    </table>
+    <div class="so">第 90 天產出：<b>閘門 0 決策包</b>（會計師意見＋國泰立場＋價差模型＋30 MW 案源清單＋百綠組織預算）</div>
+  </div>
+  <footer><div class="src">註：時程為建議，依各方配合進度調整</div><div class="pg"></div></footer>
+  <aside class="notes">（30 秒）最後是 90 天計畫，五條工作線同時進行。第 90 天會交出閘門 0 的決策包。以上是我的報告，接下來請董總指教。</aside>
+</section>
+
+<!-- APPENDIX DIVIDER -->
+<section class="slide cover" data-sec="" data-min="0">
+  <div class="bar"></div>
+  <div class="inner">
+    <div class="eyebrow">附錄</div>
+    <h1>答詢備用資料</h1>
+    <div class="sub">A1 預期問答　A2 台積電綠電採購　A3 國泰電業與保險法規<br>A4 資訊缺口與待驗證項目　A5 資料來源</div>
+  </div>
+  <aside class="notes">答詢時依問題跳到對應附錄頁（可按 G 輸入頁碼）。</aside>
+</section>
+
+<!-- A1 Q&A -->
+<section class="slide" data-sec="附錄" data-min="0">
+  <div class="tracker"></div>
+  <h1 class="title">A1　預期問答（一）：為什麼做、負債會不會進來、為什麼不全賣台積電</h1>
+  <div class="body">
+    <div class="grid g2" style="gap:14px 24px">
+      <div class="card"><h3>Q1　奇景沒有 RE100 需求，為什麼要做？</h3><p>說服點不是自身合規，而是「新事業＋生態系關係」：百綠的開發費與平台估值，加上綠電成為與生態系客戶往來的籌碼。奇景熟悉策略性少數股權（如 2024 年取得上詮 5.3%）。</p></div>
+      <div class="card"><h3>Q2　負債到底會不會進來？</h3><p>5% 即使改權益法，SPV 負債也不進來。真正的風險是百綠角色疊加觸發 IFRS 10／16，已用合約設計處理，並以會計師初步意見作為閘門 0；意見不理想就不往下走。</p></div>
+      <div class="card"><h3>Q3　台積電名號最好，為什麼不全賣？</h3><p>100 MW 只占它年用電約 0.4%，價格由對方決定；20 年固定價加上向 SPV 固定價買入，兩端鎖死，轉供費今年就漲了 57%。台積電錨定 50–60%，保留名號與融資性。</p></div>
+      <div class="card"><h3>Q4　奇景要出多少錢？最多會虧多少？</h3><p>100 MW 時 5% 約 0.6–0.9 億元，分階段投入；另加百綠第一年組織成本。任一閘門未過即停在現有規模，曝險以已投入金額為上限。</p></div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：奇景新聞稿（上詮投資）；科技新報；RECCESSARY；本團隊分析</div><div class="pg"></div></footer>
+  <aside class="notes">答詢備用。</aside>
+</section>
+
+<section class="slide" data-sec="附錄" data-min="0">
+  <div class="tracker"></div>
+  <h1 class="title">A1　預期問答（二）：能賺多少、做不做得到、國泰為什麼要合作</h1>
+  <div class="body">
+    <div class="grid g2" style="gap:14px 24px">
+      <div class="card"><h3>Q5　到底能賺多少？</h3><p>數量級：開發費三年累計 1–3 億；售電價差每年 1,800–4,900 萬（毛額）；長期看平台估值（天能上櫃約 27–31 倍本益比）。最大的未知是價差，列入 90 天驗證。</p></div>
+      <div class="card"><h3>Q6　100 MW 做得到嗎？</h3><p>只靠新建做不到。進能服案源約撐到 30–50 MW，其餘需收購 FIT 轉換案或國泰 283 MW 存量中可轉綠電的部分。所以改成三個閘門。</p></div>
+      <div class="card"><h3>Q7　國泰為什麼願意合作？</h3><p>國泰資金成本低（歷史報酬 4.5–5%）、2025 年 400 MW 目標未達；§146-5 不得派保險業人員任經理人，需要外部管理者與案源。但它有自己的統購經驗，可能想保留售電權。</p></div>
+      <div class="card"><h3>Q8　和天能、國泰自己的售電怎麼競爭？</h3><p>差異化在半導體生態系買方，這是奇景獨有的客群，零售價差最厚。百綠不和天能拚規模，而是拚客群。</p></div>
+      <div class="card"><h3>Q9　進能服財務偏弱，履約有沒有問題？</h3><p>主動說明：比價後跟價、不談排他；以框架合約、KPI 與履約保證回應國泰的信用審查。</p></div>
+      <div class="card"><h3>Q10　最壞情況是什麼？</h3><p>會計師認定實質控制或隱含租賃。對策是在閘門 0 就確認；若無法排除，改由買方與 SPV 直接簽約，百綠只收代理服務費。</p></div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：自由財經（國泰電業報酬率）；國泰電業官網；CSR@天下；富果；本團隊分析</div><div class="pg"></div></footer>
+  <aside class="notes">答詢備用。</aside>
+</section>
+
+<!-- A2 TSMC -->
+<section class="slide" data-sec="附錄" data-min="0">
+  <div class="tracker"></div>
+  <h1 class="title">A2　台積電是全台最大綠電買家，但偏好 20 年長約、大量體與聯合採購</h1>
+  <div class="body">
+    <table style="font-size:13.5px">
+      <tr><th style="width:22%">項目</th><th>事實</th></tr>
+      <tr><td>用電與綠電</td><td>2025 年全球用電約 287.7 億度；再生能源 57.8 億度（20.1%），台灣廠區 11.4%；累計簽約 7.3 GW，全數啟用後約 158 億度／年<span class="tag t-v">查證</span></td></tr>
+      <tr><td>目標</td><td>RE100 提前至 2040 年；2030 年生產據點再生能源比例上調至 60%；2025 年加入 SBTi<span class="tag t-v">查證</span></td></tr>
+      <tr><td>重要合約</td><td>2020 年與沃旭簽 920 MW 全部發電量，20 年固定價；2023 年首創聯合採購，20 年 200 億度（誠新綠能）<span class="tag t-v">查證</span></td></tr>
+      <tr><td>小量進入管道</td><td>2025 年參與「綠電彈性分配試行計畫」，整合逾 40 家業者，以 15 分鐘為單位匹配<span class="tag t-v">查證</span></td></tr>
+      <tr><td>供應鏈要求</td><td>關鍵排放源供應商須簽減排協議，2026 年底前完成產品碳足跡第三方驗證<span class="tag t-v">查證</span>；IC 設計（fabless）綠電需求主要來自自身承諾或品牌客戶<span class="tag t-i">推論</span></td></tr>
+      <tr><td>成交價</td><td>台積電與個別售電業的成交價均未公開<span class="tag t-v">查證</span></td></tr>
+    </table>
+  </div>
+  <footer><div class="src">資料來源：科技新報、RECCESSARY（永續報告書）；數位時代、鉅亨網（沃旭、聯合採購）；CSRone</div><div class="pg"></div></footer>
+  <aside class="notes">答詢備用。</aside>
+</section>
+
+<!-- A3 CATHAY -->
+<section class="slide" data-sec="附錄" data-min="0">
+  <div class="tracker"></div>
+  <h1 class="title">A3　國泰電業資金成本低、要求報酬低，是理想的資產持有者，但受保險法約束</h1>
+  <div class="body">
+    <div class="grid g2" style="gap:24px">
+      <div>
+        <div class="kicker">國泰電業</div>
+        <ul class="b">
+          <li>225 座電站、283 MW、年發電 3.45 億度（官網）<span class="tag t-v">查證</span></li>
+          <li>2022/11 國壽以 9.82 億元向三井買 25%，持股升至 70%<span class="tag t-v">查證</span></li>
+          <li>歷史報酬率 4.5–5%（2021 年說法）<span class="tag t-v">查證</span></li>
+          <li>合資案例：星河能源（友達）、泰旭能源（中美晶）、開泰能源（開陽 30%）；2024/12 與國壽以不超過 273 億元投資沃旭大彰化西北 50%<span class="tag t-v">查證</span></li>
+          <li>2023 年以商辦房東身分協助 18 家企業轉供 1,349 萬度<span class="tag t-v">查證</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="kicker">保險法 §146-5 對合資條款的影響</div>
+        <ul class="b">
+          <li>派任董監事不得超過三分之二；董事席次過半須設至少一席獨立董事<span class="tag t-v">查證</span></li>
+          <li>不得指派保險業人員兼任被投資事業經理人 → SPV 必須外包管理<span class="tag t-v">查證</span></li>
+          <li>剩餘董事席若落到奇景，5% 可能構成 IAS 28 重大影響力（權益法，負債仍不進來）<span class="tag t-i">推論</span></li>
+          <li>國泰電業是否穿透適用，待律師確認<span class="tag t-u">未查證</span></li>
+          <li>2025/7 金管會預告投資上限由 10% 提高到 15%，最終版本未查到<span class="tag t-u">未查證</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer><div class="src">資料來源：國泰電業官網；MoneyDJ；自由財經；國泰金控新聞；三立新聞；國壽永續網站；CSR@天下；壽險公會法規查詢系統；鉅亨網</div><div class="pg"></div></footer>
+  <aside class="notes">答詢備用。</aside>
+</section>
+
+<!-- A4 GAPS -->
+<section class="slide" data-sec="附錄" data-min="0">
+  <div class="tracker"></div>
+  <h1 class="title">A4　定稿前仍需補齊的資訊缺口，已全部排入 90 天驗證清單</h1>
+  <div class="body">
+    <table style="font-size:13.5px">
+      <tr><th style="width:30%">資訊缺口</th><th style="width:40%">為什麼重要</th><th>驗證方式</th></tr>
+      <tr><td>百綠與奇景的持股關係</td><td>決定百綠是否併入奇景、百綠負債是否進入奇景報表</td><td>商工登記、20-F Exhibit 8</td></tr>
+      <tr><td>台積電成交價</td><td>決定賣價上限與價差空間</td><td>台積電採購端、彈性分配計畫</td></tr>
+      <tr><td>二手電廠 IRR 與每 MW 行情</td><td>決定閘門 2、3 的收購可行性</td><td>國泰、券商、交易顧問</td></tr>
+      <tr><td>開發費市場行情（2–5%）</td><td>前三年主要獲利來源</td><td>同業訪談、過往案例</td></tr>
+      <tr><td>IFRS 條文適用</td><td>表外是否守得住</td><td>簽證會計師初步意見</td></tr>
+      <tr><td>§146-5 穿透適用</td><td>董事席與管理架構</td><td>律師意見</td></tr>
+      <tr><td>售電業登記要件</td><td>百綠執照範圍與申報義務</td><td>能源署規定</td></tr>
+    </table>
+  </div>
+  <footer><div class="src">註：天能 2026 年營收 35 億、EPS 7 元為法人預估；綠電交易年複合成長 47.7% 為業者引述之預估；CPPA、T-REC 二手報價來源品質低，未納入本簡報</div><div class="pg"></div></footer>
+  <aside class="notes">答詢備用。</aside>
+</section>
+
+<!-- A5 SOURCES -->
+<section class="slide" data-sec="附錄" data-min="0">
+  <div class="tracker"></div>
+  <h1 class="title">A5　主要資料來源</h1>
+  <div class="body" style="font-size:11.5px;line-height:1.55;columns:2;column-gap:36px">
+    <p style="font-size:11.5px">• 經濟日報：天能綠電上櫃掛牌、高股利政策</p>
+    <p style="font-size:11.5px">• 旺得富理財網：天能綠電首季營收、全國綠電交易 58 億度</p>
+    <p style="font-size:11.5px">• 科技新報：天能綠電上半年 EPS；台積電 2025 年用電 288 億度</p>
+    <p style="font-size:11.5px">• 工商時報：天能上半年財報；台電小額綠電</p>
+    <p style="font-size:11.5px">• Yahoo 股市：天能綠電 2026 年 9 月營收公告</p>
+    <p style="font-size:11.5px">• 富果直送：雲豹能源 2025Q1、進能服 2025/12 法說會備忘錄</p>
+    <p style="font-size:11.5px">• FinLab：雲豹能源財務資料</p>
+    <p style="font-size:11.5px">• CSRone：台積電永續報告書（引述 TCAN）</p>
+    <p style="font-size:11.5px">• RECCESSARY：台積電永續報告書；2026 年輸配電費率</p>
+    <p style="font-size:11.5px">• 數位時代、鉅亨網、關鍵評論網：台積電與沃旭、聯合採購</p>
+    <p style="font-size:11.5px">• 國泰電業官網；國泰人壽企業永續網站；國泰金控新聞</p>
+    <p style="font-size:11.5px">• MoneyDJ：國壽收購國泰電業股權；奇景基本資料</p>
+    <p style="font-size:11.5px">• 自由財經、三立新聞：麥寮天機電廠與國壽投資目標</p>
+    <p style="font-size:11.5px">• 壽險公會保險相關法規查詢系統：保險法 §146-5</p>
+    <p style="font-size:11.5px">• 鉅亨網：保險業基建投資上限放寬預告</p>
+    <p style="font-size:11.5px">• 中央社、法源法律網、普華商務法律事務所：電業法修正</p>
+    <p style="font-size:11.5px">• 國家再生能源憑證中心：憑證規費、零股化制度</p>
+    <p style="font-size:11.5px">• 經濟部能源署：再生能源售電業基本資料</p>
+    <p style="font-size:11.5px">• 聯合報引述審計部、立法院經濟委員會報告、泓德能源法說會：光電裝置量</p>
+    <p style="font-size:11.5px">• nStock、Win 投資：進能服公開財報整理</p>
+    <p style="font-size:11.5px">• CSR@天下：國泰統購綠電</p>
+    <p style="font-size:11.5px">• 奇景官網環境政策；奇景上詮投資新聞稿</p>
+    <p style="font-size:11.5px">• IFRS.org、EY：IFRS 9／7 自然依賴型電力合約修正</p>
+    <p style="font-size:11.5px">• 環境資訊中心、盛達電業：用電大戶條款</p>
+  </div>
+  <footer><div class="src">完整連結請見研究底稿「資料來源」章節</div><div class="pg"></div></footer>
+  <aside class="notes">答詢備用。</aside>
+</section>
+
+</div>
+
+<div id="notesPanel"><div class="t" id="notesMeta"></div><div id="notesText"></div></div>
+<div id="hud">
+  <span id="timer" title="T：開始／暫停計時">00:00 / 20:00</span>
+  <span id="pager"></span>
+  <button onclick="go(cur-1)">‹</button><button onclick="go(cur+1)">›</button>
+  <button onclick="toggleNotes()" title="N">講稿</button>
+  <button onclick="toggleTimer()" title="T">計時</button>
+  <button onclick="document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()" title="F">全螢幕</button>
+  <button onclick="window.print()" title="P">PDF</button>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const SECS=["摘要","市場機會","方案設計","商業模式與財務","執行與風險","決策與下一步"];
+let cur=0, notesOn=false, tOn=false, tStart=0, tAcc=0;
+slides.forEach((s,i)=>{
+  const tr=s.querySelector('.tracker');
+  if(tr){
+    if(s.dataset.sec==="附錄"){tr.innerHTML='<span class="on">附錄｜答詢備用</span>';}
+    else tr.innerHTML=SECS.map(x=>`<span class="${x===s.dataset.sec?'on':''}">${x}</span>`).join('');
+  }
+  const pg=s.querySelector('.pg'); if(pg) pg.textContent=i+1;
+});
+function fit(){
+  const st=document.getElementById('stage');
+  const sc=Math.min(innerWidth/1280,(innerHeight-(notesOn?innerHeight*0.34:0))/720)*0.98;
+  st.style.transform=`translate(-50%,-50%) scale(${sc})`;
+  st.style.top=notesOn?`${(innerHeight*0.66)/2}px`:'50%';
+}
+function go(n){
+  n=Math.max(0,Math.min(slides.length-1,n));
+  slides[cur].classList.remove('active'); cur=n; slides[cur].classList.add('active');
+  document.getElementById('pager').textContent=` ${cur+1}/${slides.length} `;
+  document.getElementById('progress').style.width=((cur+1)/slides.length*100)+'%';
+  const nt=slides[cur].querySelector('.notes');
+  document.getElementById('notesText').textContent=nt?nt.textContent:'';
+  let planned=0; for(let i=0;i<=cur;i++) planned+=parseFloat(slides[i].dataset.min||0);
+  document.getElementById('notesMeta').textContent=`第 ${cur+1} 頁｜建議時間 ${slides[cur].dataset.min||0} 分｜累計應到 ${planned.toFixed(1)} / 20 分`;
+  history.replaceState(null,'','#'+(cur+1));
+}
+function toggleNotes(){notesOn=!notesOn;document.getElementById('notesPanel').style.display=notesOn?'block':'none';fit();}
+function toggleTimer(){ if(tOn){tAcc+=Date.now()-tStart;tOn=false;} else {tStart=Date.now();tOn=true;} }
+setInterval(()=>{const ms=tAcc+(tOn?Date.now()-tStart:0);const s=Math.floor(ms/1000);
+  const el=document.getElementById('timer');el.textContent=`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')} / 20:00`;
+  el.style.color=s>1200?'#FF6B6B':'#7FD3FF';},500);
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(cur+1);}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(cur-1);}
+  else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
+  else if(e.key==='n'||e.key==='N')toggleNotes();
+  else if(e.key==='t'||e.key==='T')toggleTimer();
+  else if(e.key==='f'||e.key==='F')document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();
+  else if(e.key==='p'||e.key==='P')window.print();
+  else if(e.key==='g'||e.key==='G'){const v=prompt('跳到第幾頁？');if(v)go(parseInt(v)-1);}
+});
+let tx=0;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(cur+(d<0?1:-1));});
+addEventListener('resize',fit);
+fit(); go(Math.max(0,(parseInt(location.hash.slice(1))||1)-1));
+</script>
+</body>
+</html>
